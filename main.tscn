@@ -1,0 +1,534 @@
+[gd_scene load_steps=28 format=1]
+
+[ext_resource path="res://main.gd" type="Script" id=1]
+[ext_resource path="res://art/Godot.png" type="Texture" id=2]
+[ext_resource path="res://art/Pieces/BigRed.png" type="Texture" id=3]
+[ext_resource path="res://art/Pieces/VerticalBlue.png" type="Texture" id=4]
+[ext_resource path="res://art/Pieces/VerticalWhite.png" type="Texture" id=5]
+[ext_resource path="res://art/Pieces/horizontal.png" type="Texture" id=6]
+[ext_resource path="res://art/Pieces/Yellow.png" type="Texture" id=7]
+[ext_resource path="res://art/Walls/WallHorizontal.png" type="Texture" id=8]
+[ext_resource path="res://art/Walls/WallVertical.png" type="Texture" id=9]
+[ext_resource path="res://art/Walls/WallSmall.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 64 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=6]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=7]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 32 )
+
+[sub_resource type="RectangleShape2D" id=8]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=9]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=10]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=11]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=12]
+
+custom_solver_bias = 0.0
+extents = Vector2( 192, 32 )
+
+[sub_resource type="RectangleShape2D" id=13]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31, 223 )
+
+[sub_resource type="RectangleShape2D" id=14]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 224 )
+
+[sub_resource type="RectangleShape2D" id=15]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=16]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 64 )
+
+[sub_resource type="RectangleShape2D" id=17]
+
+custom_solver_bias = 0.0
+extents = Vector2( 192, 32 )
+
+[node name="main" type="Node"]
+
+editor/display_folded = true
+script/script = ExtResource( 1 )
+
+[node name="logo" type="StaticBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 192, 448 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 0.95, 0, 0, 0.95, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 2
+collision/mask = 2
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="logo"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="logo"]
+
+transform/scale = Vector2( 0.95, 0.95 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[node name="pieces" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="bigred" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 192, 128 )
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/bigred"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/bigred"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="leftblue" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 96, 128 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/leftblue"]
+
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/leftblue"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="leftwhite" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 96, 256 )
+input/pickable = true
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/leftwhite"]
+
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/leftwhite"]
+
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="rightblue" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 288, 128 )
+input/pickable = true
+shapes/0/shape = SubResource( 5 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/rightblue"]
+
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/rightblue"]
+
+shape = SubResource( 5 )
+trigger = false
+_update_shape_index = 0
+
+[node name="rightwhite" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 288, 256 )
+input/pickable = true
+shapes/0/shape = SubResource( 6 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/rightwhite"]
+
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/rightwhite"]
+
+shape = SubResource( 6 )
+trigger = false
+_update_shape_index = 0
+
+[node name="horizontal" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 192, 224 )
+input/pickable = true
+shapes/0/shape = SubResource( 7 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/horizontal"]
+
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/horizontal"]
+
+shape = SubResource( 7 )
+trigger = false
+_update_shape_index = 0
+
+[node name="yellow1" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 96, 352 )
+input/pickable = true
+shapes/0/shape = SubResource( 8 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/yellow1"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/yellow1"]
+
+shape = SubResource( 8 )
+trigger = false
+_update_shape_index = 0
+
+[node name="yellow2" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 160, 288 )
+input/pickable = true
+shapes/0/shape = SubResource( 9 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/yellow2"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/yellow2"]
+
+shape = SubResource( 9 )
+trigger = false
+_update_shape_index = 0
+
+[node name="yellow3" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 224, 288 )
+input/pickable = true
+shapes/0/shape = SubResource( 10 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/yellow3"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/yellow3"]
+
+shape = SubResource( 10 )
+trigger = false
+_update_shape_index = 0
+
+[node name="yellow4" type="KinematicBody2D" parent="pieces"]
+
+editor/display_folded = true
+transform/pos = Vector2( 288, 352 )
+input/pickable = true
+shapes/0/shape = SubResource( 11 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 3
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="pieces/yellow4"]
+
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pieces/yellow4"]
+
+shape = SubResource( 11 )
+trigger = false
+_update_shape_index = 0
+
+[node name="walls" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="top" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 192, 32 )
+input/pickable = false
+shapes/0/shape = SubResource( 12 )
+shapes/0/transform = Matrix32( 0.99, 0, 0, 0.99, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/top"]
+
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/top"]
+
+transform/scale = Vector2( 0.99, 0.99 )
+shape = SubResource( 12 )
+trigger = false
+_update_shape_index = 0
+
+[node name="left" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 32, 288 )
+input/pickable = false
+shapes/0/shape = SubResource( 13 )
+shapes/0/transform = Matrix32( 0.99, 0, 0, 0.99, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/left"]
+
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/left"]
+
+transform/scale = Vector2( 0.99, 0.99 )
+shape = SubResource( 13 )
+trigger = false
+_update_shape_index = 0
+
+[node name="right" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 352, 288 )
+input/pickable = false
+shapes/0/shape = SubResource( 14 )
+shapes/0/transform = Matrix32( 0.99, 0, 0, 0.99, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/right"]
+
+texture = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/right"]
+
+transform/scale = Vector2( 0.99, 0.99 )
+shape = SubResource( 14 )
+trigger = false
+_update_shape_index = 0
+
+[node name="small1" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 96, 448 )
+input/pickable = false
+shapes/0/shape = SubResource( 15 )
+shapes/0/transform = Matrix32( 0.95, 0, 0, 0.95, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/small1"]
+
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/small1"]
+
+transform/scale = Vector2( 0.95, 0.95 )
+shape = SubResource( 15 )
+trigger = false
+_update_shape_index = 0
+
+[node name="small2" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 288, 448 )
+input/pickable = false
+shapes/0/shape = SubResource( 16 )
+shapes/0/transform = Matrix32( 0.95, 0, 0, 0.95, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/small2"]
+
+texture = ExtResource( 10 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/small2"]
+
+transform/scale = Vector2( 0.95, 0.95 )
+shape = SubResource( 16 )
+trigger = false
+_update_shape_index = 0
+
+[node name="bottom" type="StaticBody2D" parent="walls"]
+
+editor/display_folded = true
+transform/pos = Vector2( 192, 544 )
+input/pickable = false
+shapes/0/shape = SubResource( 17 )
+shapes/0/transform = Matrix32( 0.99, 0, 0, 0.99, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="walls/bottom"]
+
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls/bottom"]
+
+transform/scale = Vector2( 0.99, 0.99 )
+shape = SubResource( 17 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="input_event" from="pieces/bigred" to="." method="_on_bigred_input_event"]
+
+[connection signal="input_event" from="pieces/leftblue" to="." method="_on_leftblue_input_event"]
+
+[connection signal="input_event" from="pieces/leftwhite" to="." method="_on_leftwhite_input_event"]
+
+[connection signal="input_event" from="pieces/rightblue" to="." method="_on_rightblue_input_event"]
+
+[connection signal="input_event" from="pieces/rightwhite" to="." method="_on_rightwhite_input_event"]
+
+[connection signal="input_event" from="pieces/horizontal" to="." method="_on_horizontal_input_event"]
+
+[connection signal="input_event" from="pieces/yellow1" to="." method="_on_yellow1_input_event"]
+
+[connection signal="input_event" from="pieces/yellow2" to="." method="_on_yellow2_input_event"]
+
+[connection signal="input_event" from="pieces/yellow3" to="." method="_on_yellow3_input_event"]
+
+[connection signal="input_event" from="pieces/yellow4" to="." method="_on_yellow4_input_event"]
+
+
